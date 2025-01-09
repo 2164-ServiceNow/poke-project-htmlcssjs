@@ -24,10 +24,57 @@
                 
               </ul>
             </div>
-          </div>
+        </div>
+        <div style="padding-top:20px; padding-bottom: 20px;">
+            <h4>Pokemon Moves</h4>
+            <input placeholder="Enter a move id or name" id="moveSearch" />
+            <button onclick="queryMoves()">Search</button>
+        </div>
+        <div class="container text-center" style="background-color: rgb(217, 169, 169); color: black; padding:20px">
+            <h3 id="moveName">Move Name</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h5>Accuracy</h5>
+                        <p id="moveAccuracy"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5>Power Points</h5>
+                        <p id="movePowerPoints"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5>Priority</h5>
+                        <p id="movePriority"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5>Power</h5>
+                        <p id="movePower"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top:20px">
+                <div class="col"></div>
+                <div class="col-6">
+                    <div class="card col" >
+                        <h5 >Pokemon</h5>
+                        <p style="font-style: italic; font-size: small; text-align: left">Here are up to 10 examples of pokemon that have learned this move.</p>
+                        <ul id="movePokemonList" style="text-align: left;"></ul>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            
+        </div>
     </div>
 
     <script src="queryPokemon.js"></script>
+    <script src="queryMoves.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
