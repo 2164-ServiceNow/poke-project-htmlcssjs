@@ -12,22 +12,38 @@
         <div>
             <input placeholder="Enter pokemon name here" id="pokeSearch"/>
             <button onclick="queryPokemon()">Search</button>
+            <br/>
+            <input placeholder="Enter item name here" id="itemSearch"/>
+            <button onclick="queryItems()">Search Item</button>
         </div>
 
-        <div class="card" id="pokeCard" style="width: 18rem;">
-            <div class="card-body">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" id="pokeCard">
               <h5 class="card-title" id="pokeName">Pokemon Name: </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary" id="pokeWeight">Weight: </h6>
+              <img src="" id="pokeSprite"/>
+              <p class="card-subtitle mb-2 text-body-secondary" id="pokeWeight">Weight: </p>
               <p href="#" class="card-link" id="pokeHeight">Height: </p>
               <label for="abilityList">Abilities:</label>
               <ul id="abilityList">
                 
               </ul>
             </div>
-          </div>
+
+            <div class="card-body" id="itemCard">
+                <h5 class="card-title" id="itemName">Item Name: </h5>
+                <img src="" id="itemSprite"/>
+                <p href="#" class="card-link" id="itemDescription">Description: </p>
+                <p href="#" id="itemCost">Cost: </p>
+                <label for="attributesList" id="attributesLabel">Atributes: </label>
+                <ul id="attributesList">
+                    
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="queryPokemon.js"></script>
+    <script src="queryItems.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -72,12 +72,16 @@ function updateCard(pokemon){
 
     // Grab all elements we want to replace with information from pokeapi
     const pokeName = document.getElementById("pokeName")
+    const pokeSprite = document.getElementById("pokeSprite")
     const pokeWeight = document.getElementById("pokeWeight")
     const abilityList = document.getElementById("abilityList")
     const pokeHeight = document.getElementById("pokeHeight")
 
     // replace information
     pokeName.textContent += `${pokemon.name}`
+    pokeSprite.src = `${pokemon.sprites.front_default}`
+    pokeSprite.style.height = "75%";
+    pokeSprite.style.width = "75%";
     pokeHeight.textContent += `${pokemon.height}`
     pokeWeight.textContent += `${pokemon.weight}`
 
