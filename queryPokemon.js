@@ -75,9 +75,10 @@ function updateCard(pokemon){
     const pokeWeight = document.getElementById("pokeWeight")
     const abilityList = document.getElementById("abilityList")
     const pokeHeight = document.getElementById("pokeHeight")
+    const pokeSprite = document.getElementById("selectedPokemonSprite1")
 
     // replace information
-    pokeName.textContent += `${pokemon.name}`
+    pokeName.textContent += `${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1).toLowerCase()}`
     pokeHeight.textContent += `${pokemon.height}`
     pokeWeight.textContent += `${pokemon.weight}`
 
@@ -85,8 +86,11 @@ function updateCard(pokemon){
     let pokeAbilityArray = pokemon.abilities
 
     for(let i = 0; i < pokeAbilityArray.length; i++){
-        abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`
+        abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name.charAt(0).toUpperCase() + pokeAbilityArray[i].ability.name.slice(1).toLowerCase()}</li>`
     }
+
+    pokeSprite.setAttribute("src", pokemon.sprites.back_default)
+    pokeSprite.style.display = "block"
 
     // Example to test dynamic nature of our abilities list
     // let longArray = ["1","2","3","4","5","6","7","8",]

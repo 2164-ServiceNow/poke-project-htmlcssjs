@@ -1,0 +1,38 @@
+body {
+    position: relative;
+    overflow: hidden;
+}
+
+#selectedPokemonSprite1 {
+    position: absolute;
+    z-index: -2;
+    left: 30px;
+    bottom: -120px;
+    width: 500px;
+    height: 375px;
+    object-fit: contain;
+    display: none;
+}
+
+#selectedPokemonItem1 {
+    position: absolute;
+    z-index: -1;
+    left: 400px;
+    bottom: 150px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: none;
+    border: solid 3px;
+    border-color: red;
+    border-radius: 50%;
+}
+
+.card {
+    background-color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#pokeCard, #itemCard {
+    background-color: rgb(61, 165, 230)
+}
