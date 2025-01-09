@@ -94,3 +94,4 @@ function updateCard(pokemon){
     //     abilityList.innerHTML += `<li>${longArray[i]}</li>`
     // }
 }
+
