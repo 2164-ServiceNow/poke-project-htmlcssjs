@@ -51,7 +51,7 @@ async function queryPokemon(){
         const response = await fetch(`${rootUrl}/${pokeSearchName}`) // awaiting promise from Fetch
         const pokemon = await response.json() // awaiting parsing of JSON information
         // after this point we have stopped external interaction
-        console.log(pokemon)
+        // console.log(pokemon)
         /* 2 options:
             1. Include logic within the try block
             2. Create a seperate function and call it here
