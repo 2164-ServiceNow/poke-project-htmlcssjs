@@ -87,10 +87,4 @@ function updateCard(pokemon){
     for(let i = 0; i < pokeAbilityArray.length; i++){
         abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`
     }
-
-    // Example to test dynamic nature of our abilities list
-    // let longArray = ["1","2","3","4","5","6","7","8",]
-    // for(let i = 0; i < longArray.length; i++){
-    //     abilityList.innerHTML += `<li>${longArray[i]}</li>`
-    // }
 }
