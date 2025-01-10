@@ -1,0 +1,173 @@
+/* Fonts */
+@font-face
+{
+    font-family: "Ceviche One";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/cevicheone/v16/gyB4hws1IcA6JzR-GB_JX5zabYo.woff2) format('woff2');
+}
+
+/* fallback */
+@font-face {
+    font-family: "Material Symbols Outlined";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v222/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
+  }
+/* Fonts End */
+
+body
+{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(#b7d3e9 90%, #76f351);
+    max-height: 100vh;
+}
+
+#main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(69px);
+    overflow: scroll;
+}
+
+.spacer
+{
+    flex-grow: 1;
+}
+
+.material-symbols-outlined
+{
+    font-family: 'Material Symbols Outlined';
+}
+
+/* Heading */
+#heading
+{
+    display: flex;
+    background: linear-gradient(gold 30%, yellow);
+    font-size: max(7vh, 3vw, 50pt);
+}
+
+header
+{
+    text-align: center;
+    font-weight: 600;
+    font-family: "Ceviche One";
+    text-shadow: 0 0 10px blue, 0 0 10px blue, 0 0 10px blue;
+    padding: 2vh 2vw;
+    padding-bottom: 0;
+}
+
+header:first-child
+{
+    position: unset;
+    mix-blend-mode: screen;
+    background: white;
+    color: black;
+}
+
+header:last-child
+{
+    position: absolute;
+    mix-blend-mode: multiply;
+    background: #b7d3e9;
+    color: white;
+}
+/* Heading End */
+
+/* Options Bar */
+#optionsBar
+{
+    display: flex;
+    gap: max(0.5vw, 1vh);
+    margin-bottom: 1vh;
+}
+/* Options Bar End */
+
+/* Search Bar */
+#searchbar
+{
+    display: flex;
+    padding: 1vh;
+    align-items: center;
+    gap: 0.5vw;
+    margin-bottom: 2.5vh;
+}
+
+#pokeSearch
+{
+    display: inline-block;
+    width: unset;
+    height: 5vh;
+}
+
+#searchbar button
+{
+    height: max(2vw, 5vh);
+    width: max(2vw, 5vh);
+    border-radius: 50%;
+}
+
+#searchbar span
+{
+    font-size: calc(max(2vw, 5vh)*0.5);
+}
+/* Search Bar End */
+
+/* Poke Card */
+#pokeCard
+{
+    width: 20vw;
+    min-width: 300px;
+}
+
+.card-body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: max(0.8em, calc((1vw + 1vh) * 0.4)) rgba(255, 217, 0, 0.8) solid;
+    border-radius: calc((1vw + 1vh) * 0.2);
+    box-shadow: 0 0 max(1em, calc(1vw + 1vh)) max(0.5em, calc((1vw + 1vh) * 0.5)) yellow;
+    background: rgba(255, 255, 255, 0.879);
+}
+
+.card-body > *
+{
+    width: 100%;
+}
+
+.card-title
+{
+    padding: 0.5vh 0 1vh 0;
+    font-size: max(1.2vw, 2.25vh, 16pt);
+}
+
+.card-title span
+{
+    position: relative;
+    font-family: "Ceviche One";
+    font-size: max(1.2vw, 2.25vh, 24pt);
+    top: -1px;
+}
+
+#notifier
+{
+    margin: 0 0 5vh 0;
+    padding: 1vh 4vw;
+}
+
+#itemSprite
+{
+    height: 32px;
+    width: 32px;
+    margin-bottom: 1vh;
+}
+/* Poke Card End */
