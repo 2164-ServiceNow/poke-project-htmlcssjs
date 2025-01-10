@@ -1,33 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeProject</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body style="background-color: black; color: white;">
-    <div>
-        <h1>Welcome to the PokeProject!</h1>
-        <div>
-            <input placeholder="Enter pokemon name here" id="pokeSearch"/>
-            <button onclick="queryPokemon()">Search</button>
-        </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    /* Style the placeholder text */
+    #pokeSearch::placeholder {
+      color: grey; /* Sets a visible color for placeholder text */
+      opacity: 1; /* Ensures full visibility */
+    }
+    .custom-accordion {
+      width: 30%;
+      height: 80%;
+      overflow-y: auto;
+      /* background-color: #000; */
+      /* box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.8); */
+      bottom: -200px; /* Adjust position */
+      right: 1rem; /* Add margin to the right */
+    }
+  </style>
+  <body
+    style="
+      background-image: url('pikachu.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    "
+  >
+    <div class="container" style="height: 100vh">
+      <div class="row"></div>
 
-        <div class="card" id="pokeCard" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title" id="pokeName">Pokemon Name: </h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary" id="pokeWeight">Weight: </h6>
-              <p href="#" class="card-link" id="pokeHeight">Height: </p>
-              <label for="abilityList">Abilities:</label>
-              <ul id="abilityList">
-                
-              </ul>
+      <div class="row"></div>
+      <div class="row">
+        <!-- <div class="col p-3"></div> -->
+        <!-- <div class="col p-3"></div> -->
+        <!-- <div class="col p-3"></div> -->
+
+        <div class="col p-3 align-items-center">
+          <img
+            src="poster.png"
+            class="position-fixed end-0 mt-0 me-0 align-items-center"
+            style="width: 25%; left: 1380px"
+          />
+          <hr />
+          <div
+            class="accordion position-fixed custom-accordion"
+            id="accordionExample"
+            style="width: 30%; height: 80%; overflow-y: auto"
+          >
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item bg-warning border-danger">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button bg-warning text-dark border-danger"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Pokemon Search
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div
+                  class="accordion-body bg-dark text-dark border-top border-danger"
+                >
+                  <div class="d-flex align-items-center">
+                    <input
+                      class="form-control me-2 bg-dark text-light"
+                      placeholder="Enter pokemon name here"
+                      id="pokeSearch"
+                    />
+                    <button class="btn btn-danger" onclick="queryPokemon()">
+                      Search
+                    </button>
+                  </div>
+                  <div
+                    class="card bg-warning text-dark border-danger mt-3"
+                    id="pokeCard"
+                    style="width: 100%"
+                  >
+                    <div class="card-body">
+                      <h5 class="card-title text-danger" id="pokeName">
+                        Pokemon Name:
+                      </h5>
+                      <hr />
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="pokeWeight"
+                      >
+                        Weight:
+                      </h6>
+                      <p class="card-text" id="pokeHeight">Height:</p>
+                      <label for="abilityList" class="form-label text-dark">
+                        Abilities:
+                      </label>
+                      <ul id="abilityList"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item bg-warning border-danger">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed bg-warning text-dark border-danger"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Move Search
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div
+                  class="accordion-body bg-dark text-dark border-top border-danger"
+                >
+                  <div class="d-flex align-items-center">
+                    <input
+                      class="form-control me-2 bg-black text-light"
+                      placeholder="Enter pokemon name here"
+                      id="pokeSearch"
+                      style="color: white"
+                    />
+                    <button class="btn btn-danger" onclick="getMoves()">
+                      Search
+                    </button>
+                  </div>
+                  <div
+                    class="card bg-warning text-dark border-danger mt-3"
+                    id="moveCard"
+                    style="width: 100%"
+                  >
+                    <div class="card-body">
+                      <h5 class="card-title text-danger" id="moveName">
+                        Move Name:
+                      </h5>
+                      <hr />
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="moveAccuracy"
+                      >
+                        Accuracy:
+                      </h6>
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="generation"
+                      >
+                        Generation:
+                      </h6>
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="power"
+                      >
+                        Power:
+                      </h6>
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="pp"
+                      >
+                        PP:
+                      </h6>
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="priority"
+                      >
+                        Priority:
+                      </h6>
+                      <h6
+                        class="card-subtitle mb-2 text-body-secondary"
+                        id="damageClass"
+                      >
+                        Damage Class:
+                      </h6>
+                      <label for="effectList" class="form-label text-dark">
+                        Effects:
+                      </label>
+                      <ul id="effectList"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item 3 -->
           </div>
-    </div>
 
-    <script src="queryPokemon.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+          <script src="queryMoves.js"></script>
+          <script src="queryPokemon.js"></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+          ></script>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
