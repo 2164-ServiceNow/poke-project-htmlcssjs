@@ -18,7 +18,6 @@ let moves = [];
 submitButton.addEventListener("click", async (e) => {
   e.preventDefault;
   const pokeData = await fetchPokemon();
-  // console.log(pokeData);
   moves = pokeData.moves;
   moveList.innerHTML = "";
   picture.setAttribute("src", pokeData.sprites.front_default);
