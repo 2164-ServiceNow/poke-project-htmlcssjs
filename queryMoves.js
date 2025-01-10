@@ -11,12 +11,14 @@ const itemNameh3 = document.getElementById("itemName");
 const itemParagraph = document.getElementById("itemDescription");
 const audio = document.getElementById("cry");
 const additionalInfo = document.getElementById("additionalInfo");
+const categoryh3 = document.getElementById("itemCategory");
+const description = document.getElementById("itemDescription");
 let moves = [];
 
 submitButton.addEventListener("click", async (e) => {
   e.preventDefault;
   const pokeData = await fetchPokemon();
-  console.log(pokeData);
+  // console.log(pokeData);
   moves = pokeData.moves;
   moveList.innerHTML = "";
   picture.setAttribute("src", pokeData.sprites.front_default);
@@ -39,8 +41,15 @@ submitButton.addEventListener("click", async (e) => {
   itemDiv.style.visibility = "hidden";
   if (pokeData.held_items.length > 0) {
     itemNameh3.innerText = pokeData.held_items[0].item.name;
+    const itemData = await fetchItem(pokeData.held_items[0].item.url);
+    if (itemData.category.name) {
+      categoryh3.innerText = itemData.category.name;
+    }
+    if (itemData.effect_entries.length > 0) {
+      description.innerText = itemData.effect_entries[0].effect;
+    }
     itemDiv.style.visibility = "visible";
-  } 
+  }
   additionalInfo.style.visibility = "visible";
 });
 
@@ -54,6 +63,16 @@ const fetchPokemon = async () => {
     alert(
       "That is not a valid pokemon name. Try again or use an id from 1-151 "
     );
+  }
+};
+
+const fetchItem = async (itemUrl) => {
+  try {
+    const response = await fetch(itemUrl);
+    const itemData = response.json();
+    return itemData;
+  } catch (error) {
+    console.log("error fetching item", error);
   }
 };
 
