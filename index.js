@@ -25,7 +25,7 @@ Array.from(document.getElementsByName("option")).forEach(optionElem => {
 function search()
 {
     POKECARD.classList.remove("d-none");
-    clearTimeout(notifierTimeout);
+    clearNotifier();
     if(currentOption.id == "pokemonOption")
     {
         queryPokemon();
