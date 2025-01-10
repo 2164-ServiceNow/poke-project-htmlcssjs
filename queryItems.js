@@ -2,6 +2,9 @@ const rootUrl2 = "https://pokeapi.co/api/v2/item/"
 
 const itemSearch = document.getElementById("itemSearch")
 
+const itemDefaultCard = document.getElementById("itemCard")
+const itemDefaultCardHtml = document.getElementById("itemCard").innerHTML
+
 async function queryItem(){
     let itemSearchName = itemSearch.value
 
@@ -40,13 +43,28 @@ async function queryItem(){
     //The Async Await code
 
     try{
-        const response= await fetch(`${rootUrl}${itemSearchName}`)
+        const response= await fetch(`${rootUrl2}${itemSearchName}`)
         const item= await response.json()
         console.log(item)
+        updateItem(item)
     }catch(error){
         console.error(erorr)
     }finally{
         console.log("fetch has concluded")
     }
+
+}
+
+function updateItem(item){
+    itemDefaultCard.innerHTML= itemDefaultCardHtml
+
+    const itemName= document.getElementById("itemName")
+    const itemCost= document.getElementById("itemCost")
+    const itemCat= document.getElementById("itemCat")
+
+    console.log("itemName")
+    itemName.textContent += `${item.name}`
+    itemCost.textContent += `${item.cost}`
+    itemCat.textContent += `${item.category.name}`
 
 }
