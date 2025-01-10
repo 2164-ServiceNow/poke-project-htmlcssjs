@@ -38,6 +38,9 @@ submitButton.addEventListener("click", async (e) => {
     }
   }
   itemDiv.style.visibility = "hidden";
+  itemNameh3.innerText = "";
+  categoryh3.innerText = "";
+  description.innerText = "";
   if (pokeData.held_items.length > 0) {
     itemNameh3.innerText = pokeData.held_items[0].item.name;
     const itemData = await fetchItem(pokeData.held_items[0].item.url);
