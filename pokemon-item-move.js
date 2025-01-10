@@ -61,6 +61,12 @@ async function itemSearch() {
     imgElement.src=pokemonSprite;
     imgElement.style.display="block";
 
+    let pokeAbilityArray = data.attributes;
+
+  for (let i = 0; i < pokeAbilityArray.length; i++) {
+    abilityList.innerHTML += `<li style="font-weight: bold; color: darkred;">${pokeAbilityArray[i].name}</li>`;
+  }
+
   console.log(data)
 
  }catch{
