@@ -22,6 +22,7 @@ body
     height: 100vh;
     width: 100vw;
     background: linear-gradient(#b7d3e9 90%, #76f351);
+    max-height: 100vh;
 }
 
 #main
@@ -32,6 +33,7 @@ body
     height: 100vh;
     width: 100vw;
     backdrop-filter: blur(69px);
+    overflow: scroll;
 }
 
 .spacer
@@ -84,6 +86,7 @@ header:last-child
 {
     display: flex;
     gap: max(0.5vw, 1vh);
+    margin-bottom: 1vh;
 }
 /* Options Bar End */
 
@@ -94,6 +97,7 @@ header:last-child
     padding: 1vh;
     align-items: center;
     gap: 0.5vw;
+    margin-bottom: 2.5vh;
 }
 
 #pokeSearch
@@ -117,12 +121,22 @@ header:last-child
 /* Search Bar End */
 
 /* Poke Card */
+#pokeCard
+{
+    width: 20vw;
+    min-width: 300px;
+}
+
 .card-body
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    outline: max(0.8em, calc((1vw + 1vh) * 0.4)) rgba(255, 217, 0, 0.8) solid;
+    border-radius: calc((1vw + 1vh) * 0.2);
+    box-shadow: 0 0 max(1em, calc(1vw + 1vh)) max(0.5em, calc((1vw + 1vh) * 0.5)) yellow;
+    background: rgba(255, 255, 255, 0.879);
 }
 
 .card-body > *
@@ -133,8 +147,7 @@ header:last-child
 .card-title
 {
     padding: 0.5vh 0 1vh 0;
-    font-size: max(1.2vw, 2.25vh);
-    min-width: 18rem;
+    font-size: max(1.2vw, 2.25vh, 16pt);
 }
 
 .card-title span
@@ -147,7 +160,8 @@ header:last-child
 
 #notifier
 {
-    margin: 0;
+    margin: 0 0 5vh 0;
+    padding: 1vh 4vw;
 }
 
 #itemSprite

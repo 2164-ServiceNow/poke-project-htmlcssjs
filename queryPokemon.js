@@ -50,8 +50,7 @@ async function queryPokemon()
     // Async Await variation - NOTE there are 2 keywords 'async' and 'await', the 'async' is tied to your FUNCTION
     // 'await' keyword is used for ANY function that returns a promise
     // ECMAScript 6 introduced async await
-    try
-    {
+    try{
         const response = await fetch(`${rootUrl}/${pokeSearchName}`) // awaiting promise from Fetch
         const pokemon = await response.json() // awaiting parsing of JSON information
         // after this point we have stopped external interaction
@@ -61,14 +60,10 @@ async function queryPokemon()
             2. Create a seperate function and call it here
         */
         updateCardPokemon(pokemon)
-    }
-    catch(error)
-    {
+    } catch(error) {
         alertNotification("Pokemon not found.");
         console.error(error);
-    }
-    finally
-    {
+    } finally {
         console.log("fetch has concluded")
     }
 

@@ -24,7 +24,7 @@ Array.from(document.getElementsByName("option")).forEach(optionElem => {
 
 function search()
 {
-    POKECARDBODY.classList.remove("d-none");
+    POKECARD.classList.remove("d-none");
     clearTimeout(notifierTimeout);
     if(currentOption.id == "pokemonOption")
     {

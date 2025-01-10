@@ -15,13 +15,30 @@ function queryItem()
         <ul id="attributesList"></ul>
     `
 
-    // Fetch API with .then()
     let pokeSearchValue = document.getElementById("pokeSearch").value;
+
+    // // XMLHttpRequest
+    // let request = new XMLHttpRequest();
+    // request.onreadystatechange = function(){
+    //     if(request.readyState === 4 && request.status === 200) {
+    //         console.log(JSON.parse(request.responseText));
+    //         updateCardItem(JSON.parse(request.responseText));
+    //     }
+    // }
+    // request.open("GET", `${itemUrl}/${pokeSearchValue}`, true);
+    // request.send()
+
+    // Fetch API with .then()
     fetch(`${itemUrl}/${pokeSearchValue}`).then(response => {
         if(response.ok)
         {
             response.json().then(content => {
-                updateCardItem(content);
+                try{
+                    updateCardItem(content);
+                } catch(error) {
+                    alertNotification("Item not found.");
+                    console.error(error);
+                }
             });
         }
         else
@@ -29,6 +46,20 @@ function queryItem()
             alertNotification("Item not found.");
         }
     });
+
+    // //Fetch API with async/await anonymous lambda function
+    // (async () => {
+    //     try{
+    //         const RESPONSE = await fetch(`${itemUrl}/${pokeSearchValue}`);
+    //         const ITEM = await RESPONSE.json();
+
+    //         console.log(ITEM);
+    //         updateCardItem(ITEM);
+    //     } catch(error) {
+    //         alertNotification("Item not found.");
+    //         console.error(error);
+    //     }
+    // })();
 }
 
 function updateCardItem(item)
