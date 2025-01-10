@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeProject</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 20px;
+          /* color: #333; */
+        }
+    
+        .item-details {
+          max-width: 600px;
+          margin: 0 auto;
+          background: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .item-details h2 {
+          text-align: center;
+          font-size: 1.8em;
+          color: #0073e6;
+          margin-bottom: 10px;
+        }
+    
+        .item-details p {
+          font-size: 1em;
+          line-height: 1.6;
+          margin: 10px 0;
+          color: #333;
+        }
+
+        #category-items{
+            color: #333;
+        }
+        #cost{
+            color: #333;
+        }
+        #short-effect{
+            color: #333;
+        }
+    
+        .item-details ul {
+          list-style-type: disc;
+          padding-left: 20px;
+          margin: 10px 0;
+        }
+    
+        .item-details ul li {
+          font-size: 1em;
+          line-height: 1.6;
+          color: #333;
+        }
+    
+        .item-details h3 {
+          font-size: 1.4em;
+          color: #555;
+          margin-top: 20px;
+          border-bottom: 2px solid #0073e6;
+          padding-bottom: 5px;
+        }
+    
+        .item-details strong {
+          color: #0073e6;
+        }
+
+        .item-details div strong {
+          color: #0073e6;
+        }
+        #flavor-texts span{
+            color: black;
+        }
+      </style>
+      
+</head>
+<body style="background-color: black; color: white;">
+    <div>
+        <h1>Welcome to the PokeProject!</h1>
+        <div>
+            <input placeholder="Enter pokemon name here" id="pokeSearch"/>
+            <button onclick="queryPokemon()">Search</button>
+        </div>
+
+        <div class="item-details">
+            <h2>Item Details</h2>
+            <strong>Category:</strong> <strong id="category-items"></strong><br>
+            <strong>Cost:</strong> <strong id="cost"></strong>
+          
+            <h3>Attributes</h3>
+            <ul id="attributes-list">
+              <!-- <li>Countable</li>
+              <li>Consumable</li>
+              <li>Usable in Battle</li>
+              <li>Holdable</li> -->
+            </ul>
+          
+            <h3>Effect</h3>
+            <p id="effect"></p>
+            <strong>Short Effect:</strong> <span id="short-effect"></span>
+          
+            <h3>Flavor Texts</h3>
+            <div id="flavor-texts">
+                <!-- <strong>Ruby-Sapphire:</strong><span id="short-effect">ML code to visualize the information through DOM Mani</span>
+                <strong>Diamond-Pearl:</strong><span id="short-effect">ML code to visualize the information through DOM Mani</span>  -->
+            </div>
+           
+          </div>
+          
+    </div>
+
+    <!-- <script src="queryPokemon.js"></script> -->
+    <script src="./queryItems.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

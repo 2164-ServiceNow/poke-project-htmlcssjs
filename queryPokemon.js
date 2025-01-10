@@ -6,7 +6,7 @@ const pokeSearch = document.getElementById("pokeSearch")
 
 const defaultCard = document.getElementById("pokeCard")
 const defaultCardHtml = document.getElementById("pokeCard").innerHTML
-
+console.log(defaultCardHtml);
 
 // async keyword to mark entire function as asynchronous
 async function queryPokemon(){
@@ -83,6 +83,7 @@ function updateCard(pokemon){
 
     // how to replace abilities???!
     let pokeAbilityArray = pokemon.abilities
+    console.log(pokeAbilityArray);
 
     for(let i = 0; i < pokeAbilityArray.length; i++){
         abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`
