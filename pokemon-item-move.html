@@ -1,0 +1,132 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Search</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Container for form and details */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling the form elements */
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4A90E2;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+    }
+
+    /* Styling for details (p tags) */
+    .details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    #name {
+      font-weight: bold;
+      font-size: 22px;
+      color: #2e3b4e;
+    }
+
+    #flavour_text, #flavour_text1 {
+      font-style: italic;
+      color: #5f6368;
+    }
+
+    /* Image Styling */
+    #pokemonspite {
+      grid-column: span 2; /* Span the image across both columns */
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Adding space between input fields and buttons */
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    img{
+      width: 200px;
+      height: 200px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <h2>Enter Item</h2>
+      <input type="text" id="pokeItem" placeholder="Enter Pokemon name or ID">
+      <button onclick="itemSearch()">Submit</button>
+    </div>
+
+    <div class="details">
+      <p>Name:</p>
+      <p id="name"></p>
+      <p>Flavor text:</p>
+      <p id="flavour_text"></p>
+      <!-- <p id="flavour_text1">---</p> -->
+       <p>pokemon spite</p>
+      <img src="" alt="pokemon spite" id="pokemonspite" style="display: none;">
+    </div>
+  </div>
+
+  <script src="pokemon-item-move.js"></script>
+</body>
+</html>
