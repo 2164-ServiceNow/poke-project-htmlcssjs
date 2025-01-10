@@ -1,0 +1,67 @@
+/* General Styles */
+body {
+    background-color: #f2eaea; /* Dark background for a sleek look */
+    color: #ffffff; /* White text for contrast */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for Input and Card */
+div {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Search Input and Button */
+#itemSearch {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FF4500;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF6347; /* Lighter shade on hover */
+}
+
+/* Card Styles */
+
+/* List Styling */
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+ul li {
+    list-style-type: circle;
+    margin: 5px 0;
+}
+
+/* Label Styling */
+label {
+    font-weight: bold;
+    color: #FFA500;
+    margin-top: 10px;
+    display: inline-block;
+}
