@@ -63,7 +63,10 @@ async function queryPokemon(){
         console.log("fetch has concluded")
     }
 
+    
 }
+
+
 
 // be mindful, pokemon is JUST the variable name and has ABSOLUTELY NO TYPE RESTRICTION
 function updateCard(pokemon){
@@ -76,10 +79,16 @@ function updateCard(pokemon){
     const abilityList = document.getElementById("abilityList")
     const pokeHeight = document.getElementById("pokeHeight")
 
+    const pokeMoveList = document.getElementById("pokeMoveList")
+    const pokeItemList = document.getElementById("pokeItemList")
+    const pokePic = document.getElementById("pokePic")
+
+
     // replace information
     pokeName.textContent += `${pokemon.name}`
-    pokeHeight.textContent += `${pokemon.height}`
-    pokeWeight.textContent += `${pokemon.weight}`
+    pokeHeight.textContent += `${pokemon.height}` + " (" + parseFloat(`${pokemon.height}`)/10 + " m)"
+    pokeWeight.textContent += `${pokemon.weight}` + " (" + parseFloat(`${pokemon.weight}`)/10 + " kg)"
+    pokePic.setAttribute("scr", pokemon.sprites.front_default)
 
     // how to replace abilities???!
     let pokeAbilityArray = pokemon.abilities
@@ -87,6 +96,22 @@ function updateCard(pokemon){
     for(let i = 0; i < pokeAbilityArray.length; i++){
         abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`
     }
+
+    // replacing moves
+    let pokeMoveArray = pokemon.moves
+
+    for(let i = 0; i < pokeMoveArray.length; i++){
+        pokeMoveList.innerHTML += `<li>${pokeMoveArray[i].move.name}</li>`
+    }
+
+    // replacing items
+    let pokeItemArray = pokemon.held_items
+
+    for(let i = 0; i < pokeItemArray.length; i++){
+        pokeItemList.innerHTML += `<li>${pokeItemArray[i].item.name}</li>`
+    }
+
+    
 
     // Example to test dynamic nature of our abilities list
     // let longArray = ["1","2","3","4","5","6","7","8",]
