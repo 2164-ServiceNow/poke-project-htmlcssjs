@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeAPI Item Query</title>
+  <style>
+    .item {
+      font-size: 16px;
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>PokeAPI Item Query</h1>
+  <button onclick="fetchItemsWithXHR()">Fetch with XMLHttpRequest</button>
+  <button onclick="fetchItemsWithFetchThen()">Fetch with Fetch API</button>
+  <button onclick="fetchItemsWithAsyncAwait()">Fetch with Async/Await</button>
+  <button onclick="displayItems()">Display Items</button>
+
+  <h2>Fetched Items</h2>
+  <div id="itemsContainer"></div>
+
+  <script src="queryItems.js"></script>
+</body>
+</html>
