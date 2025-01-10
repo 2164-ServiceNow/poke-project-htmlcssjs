@@ -19,6 +19,16 @@ const api = 'https://pokeapi.co/api/v2/item/';
 //     .finally(() => console.log('Fetch has concluded!'));
 
 // 3.Async/Await
+// (async function () {
+//     try {
+//         const res = await fetch(`${api}master-ball`);
+//         const item = await res.json();
+//         console.log(item);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// })();
+
 async function getItems(items) {
     try {
         let heldItems = [];
