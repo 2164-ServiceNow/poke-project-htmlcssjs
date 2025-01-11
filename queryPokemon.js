@@ -1,18 +1,17 @@
-const rootUrl = "https://pokeapi.co/api/v2/pokemon" // be mindful of the / at the end, either exclude and put in string literal down below or include & leave out of string literal
+const rootUrl = 'https://pokeapi.co/api/v2/pokemon'; // be mindful of the / at the end, either exclude and put in string literal down below or include & leave out of string literal
 
-let boolSwitch = false
+let boolSwitch = false;
 
-const pokeSearch = document.getElementById("pokeSearch")
+const pokeSearch = document.getElementById('pokeSearch');
 
-const defaultCard = document.getElementById("pokeCard")
-const defaultCardHtml = document.getElementById("pokeCard").innerHTML
-
+const defaultCard = document.getElementById('pokeCard');
+const defaultCardHtml = document.getElementById('pokeCard').innerHTML;
 
 // async keyword to mark entire function as asynchronous
-async function queryPokemon(){
-    let pokeSearchName = pokeSearch.value
+async function queryPokemon() {
+    let pokeSearchName = pokeSearch.value;
 
-    // // AJAX Way (Asynchronous JS & XML) 
+    // // AJAX Way (Asynchronous JS & XML)
     // // Ready States - 4 different ready states to the AJAX api request
 
     // // Ready State 0
@@ -47,45 +46,53 @@ async function queryPokemon(){
     // Async Await variation - NOTE there are 2 keywords 'async' and 'await', the 'async' is tied to your FUNCTION
     // 'await' keyword is used for ANY function that returns a promise
     // ECMAScript 6 introduced async await
-    try{
-        const response = await fetch(`${rootUrl}/${pokeSearchName}`) // awaiting promise from Fetch
-        const pokemon = await response.json() // awaiting parsing of JSON information
+    try {
+        const response = await fetch(`${rootUrl}/${pokeSearchName}`); // awaiting promise from Fetch
+        const pokemon = await response.json(); // awaiting parsing of JSON information
+        const items = await getItems(pokemon.held_items);
         // after this point we have stopped external interaction
-        console.log(pokemon)
+        console.log(pokemon);
         /* 2 options:
             1. Include logic within the try block
             2. Create a seperate function and call it here
         */
-        updateCard(pokemon)
-    } catch (error){
-        console.error(error)
+        updateCard(pokemon, items);
+    } catch (error) {
+        console.error(error);
     } finally {
-        console.log("fetch has concluded")
+        console.log('fetch has concluded');
     }
-
 }
 
 // be mindful, pokemon is JUST the variable name and has ABSOLUTELY NO TYPE RESTRICTION
-function updateCard(pokemon){
+function updateCard(pokemon, items) {
     // ALWAYS revert to default card
-    defaultCard.innerHTML = defaultCardHtml
+    defaultCard.innerHTML = defaultCardHtml;
 
     // Grab all elements we want to replace with information from pokeapi
-    const pokeName = document.getElementById("pokeName")
-    const pokeWeight = document.getElementById("pokeWeight")
-    const abilityList = document.getElementById("abilityList")
-    const pokeHeight = document.getElementById("pokeHeight")
+    const pokeName = document.getElementById('pokeName');
+    const pokeWeight = document.getElementById('pokeWeight');
+    const abilityList = document.getElementById('abilityList');
+    const pokeHeight = document.getElementById('pokeHeight');
+    const itemsEl = document.getElementById('itemsList');
 
     // replace information
-    pokeName.textContent += `${pokemon.name}`
-    pokeHeight.textContent += `${pokemon.height}`
-    pokeWeight.textContent += `${pokemon.weight}`
+    pokeName.textContent += `${pokemon.name}`;
+    pokeHeight.textContent += `${pokemon.height}`;
+    pokeWeight.textContent += `${pokemon.weight}`;
 
     // how to replace abilities???!
-    let pokeAbilityArray = pokemon.abilities
+    let pokeAbilityArray = pokemon.abilities;
 
-    for(let i = 0; i < pokeAbilityArray.length; i++){
-        abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`
+    for (let i = 0; i < pokeAbilityArray.length; i++) {
+        abilityList.innerHTML += `<li>${pokeAbilityArray[i].ability.name}</li>`;
+    }
+
+    for (const item of items) {
+        console.log(item.name);
+        console.log(itemsEl);
+
+        itemsEl.innerHTML += `<li>${item.name}</li>`;
     }
 
     // Example to test dynamic nature of our abilities list
