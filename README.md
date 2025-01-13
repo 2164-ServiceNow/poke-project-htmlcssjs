@@ -8,6 +8,7 @@ Be able to search our pokedex for any avail pokemon to hunt or learn more about 
 - css - v3
 - js - >ECMAScript6
 - nodejs - v20.17.0
+- bootstrap css - v5.3
 
 ## User Story
 As A...I can...so that...
